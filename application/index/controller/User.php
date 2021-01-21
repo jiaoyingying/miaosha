@@ -81,7 +81,7 @@ class User extends Common
     }
     public function public_info()
     {
-        $id=session('user_id');
+        $id=session('user_x_id');
         $info = db('user')->where('id',$id)->find();
         $this->assign('vo',$info);
         return $this->fetch('public_info');

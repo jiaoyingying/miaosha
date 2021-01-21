@@ -55,8 +55,8 @@ class Login extends Controller
             $redis->expire($username,20);  //设置过期时间，单位秒
             $this->error('用户名或密码错误');
         } else {
-            session('user_name', $info['username']);
-            session('user_id', $info['id']);
+            session('user_x_name', $info['username']);
+            session('user_x_id', $info['id']);
             //记录登录信息
             $User->editInfo($info['id']);
             $this->success('登入成功', 'index/index');

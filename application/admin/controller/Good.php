@@ -86,6 +86,7 @@ class Good extends Common
         $good=db('goods')->where('ID',$id)->find();
         $redis = $this->Redis();
         $ret=$redis->set('goods_stock'.$good['ID'], $good['stock']);
+        $ret2=$redis->set('goods_time'.$good['ID'], $good['start_time']);
         if(!$ret)
         {
             $this->error("启动秒杀失败");

@@ -3,7 +3,7 @@ namespace app\index\controller;
 use think\Controller;
 use think\Db;
 use think\cache\driver\Redis;
-class Seckill extends Common
+class Seckill extends Parenter
 {
 
 	private $expire = 43200;	//redis缓存过期时间  12h

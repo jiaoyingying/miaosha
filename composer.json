@@ -17,7 +17,18 @@
     ],
     "require": {
         "php": ">=5.4.0",
-        "topthink/framework": "5.0.*"
+        "topthink/framework": "5.0.*",
+        "php-amqplib/php-amqplib": "2.6.1",
+        "topthink/think-captcha": "1.0.7",
+        "topthink/think-helper": "1.0.6",
+        "topthink/think-image": "1.0.7",
+        "topthink/think-migration": "1.1.1",
+        "topthink/think-mongo": "1.8.5",
+        "topthink/think-oracle": "1.3",
+        "topthink/think-queue": "1.1.5",
+        "topthink/think-worker": "1.0.1",
+        "workerman/workerman": "3.5.14"
+
     },
     "autoload": {
         "psr-4": {

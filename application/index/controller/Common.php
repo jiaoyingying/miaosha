@@ -15,11 +15,11 @@ class Common extends Controller {
         parent::__construct($request);
 
         //检测session是否有效
-        if (!session('user_id')) {
+        if (!session('user_x_id')) {
             $this->error('请登陆', 'login/index');
         }
 
-        $user_id = session('user_id');
+        $user_id = session('user_x_id');
         
         //记录日志
         $this->_addLog();
@@ -72,8 +72,8 @@ class Common extends Controller {
         $data['m'] = request()->module();
         $data['c'] = request()->controller();
         $data['a'] = request()->action();
-        $data['userid'] = session('user_id');
-        $data['username'] = session('user_name');
+        $data['userid'] = session('user_x_id');
+        $data['username'] = session('user_x_name');
         $data['ip'] = ip2long(request()->ip());
         $data['time'] = time();
         $arr = array('Index/index','Log/index');

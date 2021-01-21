@@ -17,7 +17,7 @@
 <body>
 <!-- 顶部开始 -->
 <div class="container">
-    <div class="logo"><a href="{:url('@admin/index/index')}">用户信息页</a></div>
+    <div class="logo"><a href="{:url('@admin/index/index')}">订单详情</a></div>
     <div class="open-nav"><i class="iconfont">&#xe699;</i></div>
     <ul class="layui-nav right" lay-filter="">
         <li class="layui-nav-item">
@@ -39,16 +39,19 @@
 <table class="layui-table">
                 <thead>
                     <tr>
-                        <th>用户名</th>
-                        <th>邮箱</th>
-                        <th>密码</th>
+                        <th>订单号</th>
+                        <th>商品</th>
+                        <th>金额</th>
+                        <th>订单状态</th>
                     </tr>
                 </thead>
                 <tbody>
+                    
                     <tr>
-                        <td>{$vo.username}</td>
-                        <td>{$vo.email}</td>
-                        <td>{$vo.password}</td>
+                        <td>{$vo.order_no}</td>
+                        <td>{$vo.name}</td>
+                        <td>{$vo.pay_fee}</td>
+                        <td>{$vo.status}</td>
                         <td class="td-manage">
                             <a title="编辑" href="public_edit_info.html" 
                             class="ml-5" style="text-decoration:none">
@@ -56,6 +59,7 @@
                             </a>
                         </td>
                     </tr>
+                    
                 </tbody>
             </table>
          </div>
