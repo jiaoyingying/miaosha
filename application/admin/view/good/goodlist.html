@@ -1,0 +1,53 @@
+<table class="layui-table">
+                <thead>
+                    <tr>
+                        <th>商品ID</th>
+                        <th>商品名</th>
+                        <th>价格</th>
+                        <th>库存</th>
+                        <th>上架时间</th>
+                        <th>秒杀开始时间</th>
+                        <th>秒杀结束时间</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {volist name="lists" id="vo"}
+                    <tr>
+                        <td>{$vo.ID}</td>
+                        <td>{$vo.name}</td>
+                        <td>{$vo.price}</td>
+                        <td>{$vo.stock}</td>
+                        <td>{$vo.create_time}</td>
+                        <td>{$vo.start_time}</td>
+                        <td>{$vo.end_time}</td>
+                        <td class="td-manage">
+                            <a title="下架" href="javascript:;" onclick="view_del(this,'1',{$vo.ID})" 
+                            style="text-decoration:none">
+                                <i class="layui-icon">&#xe640;</i>
+                            </a>
+                            <a title="预准备" href="javascript:;" onclick="view_start(this,'1',{$vo.ID})" 
+                            style="text-decoration:none">
+                                <i class="iconfont">&#xe829;</i>
+                            </a>
+                        </td>
+                    </tr>
+                    {/volist}
+                </tbody>
+            </table>
+    <script>
+        function view_del(obj,id,vid){
+            layer.confirm('确认要删除吗？',function(index){
+                //发异步删除数据
+                window.location.href='goodremove?vid=' + vid;//不能带.php
+                $(obj).parents("tr").remove();
+                layer.msg('已删除!',{icon:1,time:1000});
+    　  })  
+        }
+        function view_start(obj,id,vid){
+            layer.confirm('确认要启动秒杀吗？',function(index){
+                //发异步删除数据
+                window.location.href='miaosha?vid=' + vid;//不能带.php
+                layer.msg('已启动!',{icon:1,time:1000});
+    　  })  
+        }
+    </script>

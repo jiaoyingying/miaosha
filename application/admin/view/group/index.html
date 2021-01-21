@@ -1,0 +1,22 @@
+分组管理
+<table class="layui-table">
+                <thead>
+                    <tr>
+                        <th>序号</th>
+                        <th>组名</th>
+                        <th>说明</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {volist name="data" id="vo"}
+                    <tr>
+                        <td>{$vo.id}</td>
+                        <td><a href='group_id.html?id={$vo.id}&gname={$vo.name}' target="_blank">{$vo.name}</a></td>
+                        <td>{$vo.description}</td>
+                    </tr>
+                    {/volist}
+                </tbody>
+            </table>
+            
+                      
+              

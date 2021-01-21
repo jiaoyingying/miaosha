@@ -1,0 +1,78 @@
+用户管理
+<table class="layui-table">
+                <thead>
+                    <tr>
+                        <th>用户ID</th>
+                        <th>用户名</th>
+                        <th>密码</th>
+                        <th>邮箱</th>
+                        <th>创建时间</th>
+                        <th>更新时间</th>
+                        <th>用户状态</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {volist name="lists" id="vo"}
+                    <tr>
+                        <td>{$vo.ID}</td>
+                        <td>{$vo.username}</td>
+                        <td>{$vo.password}</td>
+                        <td>{$vo.email}</td>
+                        <td>{$vo.create_time}</td>
+                        <td>{$vo.update_time}</td>
+                        <td>{$vo.status}</td>
+                        <td class="td-manage">
+                            <a style="text-decoration:none" onclick="member_stop(this,'10001',{$vo.ID})" href="javascript:;" title="停用">
+                                <i class="layui-icon">&#xe601;</i>
+                            </a>
+                            <a title="编辑" href="javascript:;" onclick="member_edit('编辑','useredit.html?id={$vo.ID}','4','','510')"
+                            class="ml-5" style="text-decoration:none">
+                                <i class="layui-icon">&#xe642;</i>
+                            </a>
+                            <a title="删除" href="javascript:;" onclick="view_del(this,'1',{$vo.ID})" 
+                            style="text-decoration:none">
+                                <i class="layui-icon">&#xe640;</i>
+                            </a>
+                        </td>
+                    </tr>
+                    {/volist}
+                </tbody>
+            </table>
+    <script>
+             /*用户-停用*/
+        function member_stop(obj,id,vid){
+            layer.confirm('确认要停用吗？',function(index){
+                //发异步把用户状态进行更改
+                $(obj).parents("tr").find(".td-manage").prepend('<a style="text-decoration:none" onClick="member_start(this,id)" href="javascript:;" title="启用"><i class="layui-icon">&#xe62f;</i></a>');
+                $(obj).parents("tr").find(".td-status").html('<span class="layui-btn layui-btn-disabled layui-btn-mini">已停用</span>');
+                $(obj).remove();
+                layer.msg('已停用!',{icon: 5,time:1000});
+                window.location.href='userstop?vid=' + vid;//不能带.php
+            });
+        }
+
+        /*用户-启用*/
+        function member_start(obj,id,vid){
+            layer.confirm('确认要启用吗？',function(index){
+                //发异步把用户状态进行更改
+                $(obj).parents("tr").find(".td-manage").prepend('<a style="text-decoration:none" onClick="member_stop(this,id)" href="javascript:;" title="停用"><i class="layui-icon">&#xe601;</i></a>');
+                $(obj).parents("tr").find(".td-status").html('<span class="layui-btn layui-btn-normal layui-btn-mini">已启用</span>');
+                $(obj).remove();
+                layer.msg('已启用!',{icon: 6,time:1000});
+                window.location.href='userstart?vid=' + vid;//不能带.php
+            });
+        }
+        // 用户-编辑
+        function member_edit (title,url,id,w,h) {
+            x_admin_show(title,url,w,h); 
+        }
+        /*删除用户*/
+        function view_del(obj,id,vid){
+            layer.confirm('确认要删除吗？',function(index){
+                //发异步删除数据
+                window.location.href='userremove?vid=' + vid;//不能带.php
+                $(obj).parents("tr").remove();
+                layer.msg('已删除!',{icon:1,time:1000});
+    　  })  
+        }
+    </script>

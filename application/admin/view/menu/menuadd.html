@@ -1,0 +1,71 @@
+<form class="layui-form" method="post" action="insert">
+                <div class="layui-form-item">
+                    <label for="L_username" class="layui-form-label">
+                        <span class="x-red">*</span>上级菜单
+                    </label>
+                    <div class="layui-input-inline">
+                        <input type="text" id="L_username" name="parentid" required="" lay-verify="required" value="{$pid}"
+                        autocomplete="off" class="layui-input">
+                    </div>
+                </div>
+                <div class="layui-form-item">
+                    <label for="L_username" class="layui-form-label">
+                        <span class="x-red">*</span>等级
+                    </label>
+                    <div class="layui-input-inline">
+                        <input type="text" id="L_username" name="biaoshi" required="" lay-verify="required" value="{$biaoshi}"
+                        autocomplete="off" class="layui-input">
+                    </div>
+                </div>
+                <div class="layui-form-item">
+                    <label for="L_username" class="layui-form-label">
+                        <span class="x-red">*</span>图标
+                    </label>
+                    <div class="layui-input-inline">
+                            <input type="text" id="form-field-icon-2" name="icon" value="xe68f" lay-verify="required" autocomplete="off" class="layui-input"/>
+                        <a href="cankao.html">查看</a>
+
+                    </div>
+                </div> 
+                <div class="layui-form-item">
+                    <label for="L_username" class="layui-form-label">
+                        <span class="x-red">*</span>名称
+                    </label>
+                    <div class="layui-input-inline">
+                        <input type="text" id="L_username" name="name" required="" lay-verify="required"
+                        autocomplete="off" class="layui-input">
+                    </div>
+                </div>
+                <div class="layui-form-item">
+                    <label for="L_pass" class="layui-form-label">
+                        <span class="x-red">*</span>文件名
+                    </label>
+                    <div class="layui-input-inline">
+                        <input type="text" id="L_pass" name="c" required="" lay-verify="required"
+                        autocomplete="off" class="layui-input">
+                    </div>
+                </div>
+                <div class="layui-form-item">
+                    <label for="L_pass" class="layui-form-label">
+                        <span class="x-red">*</span>方法名
+                    </label>
+                    <div class="layui-input-inline">
+                        <input type="text" id="L_pass" name="a" required="" lay-verify="required"
+                        autocomplete="off" class="layui-input">
+                    </div>
+                </div>
+                <div class="layui-form-item">
+                    <label class="layui-form-label">状态</label>
+                    <div class="layui-input-block">
+                      <input type="radio" name="display" value="1" title="显示" checked="">
+                      <input type="radio" name="display" value="2" title="不显示">
+                    </div>
+                </div>
+                <div class="layui-form-item">
+                    <label for="L_repass" class="layui-form-label">
+                    </label>
+                    <button  class="layui-btn" lay-filter="add" lay-submit="">
+                        添加
+                    </button>
+                </div>
+            </form>

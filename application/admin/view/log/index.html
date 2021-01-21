@@ -1,0 +1,23 @@
+<table class="layui-table">
+                <thead>
+                    <tr>
+                        <th>操作</th>
+                        <th>Ip</th>
+                        <th>Time</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {volist name="lists" id="vo"}
+                    <tr>
+                        <td>{$vo.c}/{$vo.a}{$vo.querystring}</td>
+                        <td>{:long2ip($vo.ip)}</td>
+                        <td>{:date('Y-m-d H:i:s',$vo.time)}</td>
+                    </tr>
+                    {/volist}
+                </tbody>
+            </table>
+            <div align="center">
+                {$page}
+            </div>
+            
+            

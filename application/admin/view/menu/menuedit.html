@@ -1,0 +1,67 @@
+ <!-- 右侧内容框架，更改从这里开始 -->
+ <a href="cankao.html">图标参考</a>
+            <form class="layui-form" action="update" method="post">
+            <!-- 便于修改，传递隐藏的用户id -->
+            <input type="hidden" name="id" value="{$data.id}" />
+                <div class="layui-form-item">
+                    <label for="L_email" class="layui-form-label">
+                        上级菜单
+                    </label>
+                    <div class="layui-input-inline">
+                        <input type="text" id="L_email" name="pname" 
+                        autocomplete="off" value="{$pname}" class="layui-input">
+                    </div>
+                </div>
+                <div class="layui-form-item">
+                    <label for="L_email" class="layui-form-label">
+                        名称
+                    </label>
+                    <div class="layui-input-inline">
+                        <input type="text" id="L_email" name="name" required lay-verify="required"
+                        autocomplete="off" value="{$data.name}" class="layui-input">
+                    </div>
+                </div>
+                <div class="layui-form-item">
+                    <label for="L_username" class="layui-form-label">
+                        图标
+                    </label>
+                    <div class="layui-input-inline">
+                        <input type="text" id="form-field-icon-2" name="icon" required lay-verify="required"
+                        autocomplete="off" value="{$data.icon}" class="layui-input">
+                    </div>
+                </div>
+                <div class="layui-form-item">
+                    <label for="L_email" class="layui-form-label">
+                        文件名
+                    </label>
+                    <div class="layui-input-inline">
+                        <input type="text" id="L_username" name="c" required lay-verify="required"
+                        autocomplete="off" value="{$data.c}" class="layui-input">
+                    </div>
+                </div>
+                <div class="layui-form-item">
+                    <label for="L_email" class="layui-form-label">
+                        方法名
+                    </label>
+                    <div class="layui-input-inline">
+                        <input type="text" id="L_username" name="a" required lay-verify="required"
+                        autocomplete="off" value="{$data.a}" class="layui-input">
+                    </div>
+                </div>
+                <div class="layui-form-item">
+                    <label for="L_sign" class="layui-form-label">
+                        <span class="x-red">*</span>状态
+                    </label>
+                    <div class="layui-input-inline">
+                        <input type="radio" name="display"  value="1" checked>显示
+                        <input type="radio" name="display"  value="2">不显示
+                    </div>
+                </div>
+                <div class="layui-form-item">
+                    <label for="L_sign" class="layui-form-label">
+                    </label>
+                    <button class="layui-btn" key="set-mine" lay-filter="save" lay-submit>
+                        保存
+                    </button>
+                </div>
+            </form>

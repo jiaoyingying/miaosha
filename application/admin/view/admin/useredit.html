@@ -1,0 +1,48 @@
+ <!-- 右侧内容框架，更改从这里开始 -->
+            <form class="layui-form" action="update" method="post">
+            <!-- 便于修改，传递隐藏的用户id -->
+            <input type="hidden" name="id" value="{$data.ID}" />
+                <div class="layui-form-item">
+                    <label for="L_email" class="layui-form-label">
+                        用户名
+                    </label>
+                    <div class="layui-input-inline">
+                        <input type="text" id="L_email" name="username" required lay-verify="required"
+                        autocomplete="off" value="{$data.username}" class="layui-input">
+                    </div>
+                </div>
+                <div class="layui-form-item">
+                    <label for="L_username" class="layui-form-label">
+                        密码
+                    </label>
+                    <div class="layui-input-inline">
+                        <input type="text" id="L_username" name="password" required lay-verify="required"
+                        autocomplete="off" value="{$data.password}" class="layui-input">
+                    </div>
+                </div>
+                <div class="layui-form-item">
+                    <label for="L_email" class="layui-form-label">
+                        邮箱
+                    </label>
+                    <div class="layui-input-inline">
+                        <input type="text" id="L_email" name="email" required lay-verify="email"
+                        autocomplete="off" value="{$data.email}" class="layui-input">
+                    </div>
+                </div>
+                <div class="layui-form-item layui-form-text">
+                    <label for="L_sign" class="layui-form-label">
+                        状态
+                    </label>
+                    <div class="layui-input-inline">
+                        <input type="text" id="L_city" name="status" autocomplete="off" value="{$data.status}"
+                        class="layui-input">
+                    </div>
+                </div>
+                <div class="layui-form-item">
+                    <label for="L_sign" class="layui-form-label">
+                    </label>
+                    <button class="layui-btn" key="set-mine" lay-filter="save" lay-submit>
+                        保存
+                    </button>
+                </div>
+            </form>

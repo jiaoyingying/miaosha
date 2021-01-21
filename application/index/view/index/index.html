@@ -1,0 +1,117 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>商城秒杀系统</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="shortcut icon" href="__STATIC__/favicon.ico" type="image/x-icon" />
+    <link rel="stylesheet" href="__STATIC__/css/font.css">
+    <link rel="stylesheet" href="__STATIC__/css/xadmin.css">
+    <link rel="stylesheet" href="https://cdn.bootcss.com/Swiper/3.4.2/css/swiper.min.css">
+    <script type="text/javascript" src="https://cdn.bootcss.com/jquery/3.2.1/jquery.min.js"></script>
+    <script type="text/javascript" src="https://cdn.bootcss.com/Swiper/3.4.2/js/swiper.jquery.min.js"></script>
+    <script src="__STATIC__/lib/layui/layui.js" charset="utf-8"></script>
+    <script type="text/javascript" src="__STATIC__/js/xadmin.js"></script>
+
+</head>
+<body>
+<!-- 顶部开始 -->
+<div class="container">
+    <div class="logo"><a href="{:url('@admin/index/index')}">商城列表</a></div>
+    <div class="open-nav"><i class="iconfont">&#xe699;</i></div>
+    <ul class="layui-nav right" lay-filter="">
+        <li class="layui-nav-item">
+            <a href="javascript:;">{:session('user_name')}</a>
+            <dl class="layui-nav-child"> <!-- 二级菜单 -->
+                <dd><a href="{:url('@index/user/public_info')}">个人信息</a></dd>
+                <dd><a href="{:url('@index/login/logout')}">退出</a></dd>
+            </dl>
+        </li>
+        <li class="layui-nav-item"><a href="{:url('@index/index/index')}">商城首页</a></li>
+    </ul>
+</div>
+<div class="wrapper">
+    
+    <!-- 左侧菜单结束 -->
+    <!-- 右侧主体开始 -->
+    <div class="page-content">
+        <div class="content">
+            <table class="layui-table">
+                <thead>
+                    <tr>
+                        <th>商品ID</th>
+                        <th>商品名</th>
+                        <th>价格</th>
+                        <th>库存</th>
+                        <th>开始时间</th>
+                        <th>结束时间</th>
+                        <th>抢购</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {volist name="lists" id="vo"}
+                    <tr>
+                        <td>{$vo.ID}</td>
+                        <td>{$vo.name}</td>
+                        <td>{$vo.price}</td>
+                        <td>{$vo.stock}</td>
+                        <td>{$vo.start_time}</td>
+                        <td>{$vo.end_time}</td>
+                        <td class="td-manage">
+                            <a title="抢购" href="javascript:;" onclick="view_del(this,'1',{$vo.ID})" 
+                            style="text-decoration:none">
+                                <i class="iconfont">&#xe698;</i>
+                            </a>
+                        </td>
+                    </tr>
+                    {/volist}
+                </tbody>
+            </table>
+           <script>
+                function view_del(obj,id,vid){
+                    layer.confirm('确认要抢购吗？',function(index){
+                        //发异步删除数据
+                        window.location.href='../Seckillre/index?gid=' + vid;//不能带.php
+                        $(obj).parents("tr").remove();
+                        layer.msg('已抢购!',{icon:1,time:1000});
+            　  })  
+                }
+            </script>
+           
+        </div>
+    </div>
+    <!-- 右侧主体结束 -->
+</div>
+<!-- 中部结束 -->
+<!-- 底部开始 -->
+<div class="footer">
+    <div class="copyright">Copyright ©2017 x-admin v2.3 All Rights Reserved. 本后台系统由X前端框架提供前端技术支持</div>
+</div>
+<!-- 底部结束 -->
+<!-- 背景切换开始 -->
+<div class="bg-changer">
+    <div class="swiper-container changer-list">
+        <div class="swiper-wrapper">
+            <div class="swiper-slide"><img class="item" src="__STATIC__/images/a.jpg" alt=""></div>
+            <div class="swiper-slide"><img class="item" src="__STATIC__/images/b.jpg" alt=""></div>
+            <div class="swiper-slide"><img class="item" src="__STATIC__/images/c.jpg" alt=""></div>
+            <div class="swiper-slide"><img class="item" src="__STATIC__/images/d.jpg" alt=""></div>
+            <div class="swiper-slide"><img class="item" src="__STATIC__/images/e.jpg" alt=""></div>
+            <div class="swiper-slide"><img class="item" src="__STATIC__/images/f.jpg" alt=""></div>
+            <div class="swiper-slide"><img class="item" src="__STATIC__/images/g.jpg" alt=""></div>
+            <div class="swiper-slide"><img class="item" src="__STATIC__/images/h.jpg" alt=""></div>
+            <div class="swiper-slide"><img class="item" src="__STATIC__/images/i.jpg" alt=""></div>
+            <div class="swiper-slide"><img class="item" src="__STATIC__/images/j.jpg" alt=""></div>
+            <div class="swiper-slide"><img class="item" src="__STATIC__/images/k.jpg" alt=""></div>
+            <div class="swiper-slide"><span class="reset">初始化</span></div>
+        </div>
+    </div>
+    <div class="bg-out"></div>
+    <div id="changer-set"><i class="iconfont">&#xe696;</i></div>
+</div>
+<!-- 背景切换结束 -->
+
+</body>
+</html>
+
+        

@@ -1,0 +1,29 @@
+个人信息查看
+<table class="layui-table">
+                <thead>
+                    <tr>
+                        <th>用户名</th>
+                        <th>邮箱</th>
+                        <th>手机</th>
+                        <th>真实姓名</th>
+                        <th>上次登录时间</th>
+                        <th>上次登录ip</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>{$vo.username}</td>
+                        <td>{$vo.email}</td>
+                        <td>{$vo.mobile}</td>
+                        <td>{$vo.realname}</td>
+                        <td>{$vo.lastlogintime}</td>
+                        <td>{$vo.lastloginip}</td>
+                        <td class="td-manage">
+                            <a title="编辑" href="public_edit_info.html" 
+                            class="ml-5" style="text-decoration:none">
+                                <i class="layui-icon">&#xe642;</i>
+                            </a>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>

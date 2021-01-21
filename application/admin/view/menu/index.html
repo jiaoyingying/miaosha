@@ -1,0 +1,55 @@
+<h1>菜单管理</h1>
+<a href="cankao.html" target='_blank'>图标参考</a>
+<table class="layui-table">
+                <thead>
+                    <tr>
+                    <th class="detail-col" width="20">排序</th>
+                    <th class="detail-col">序号</th>
+                    <th>名称</th>
+                    <th>url</th>
+                    <th class="hidden-480">data</th>
+                    <th class="hidden-480">状态</th>
+                    <th>管理员操作</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {volist name="lists" id="vo"}
+                    <tr>
+                        <td>{$vo.listorder}</td>
+                        <td>{$vo.id}</td>
+                        <td>{$vo.name}</td>
+                        <td>{$vo.c}/{$vo.a}</td>
+                        <td>{$vo.data}</td>
+                        <td>{$vo.display}</td>
+                        <td class="td-manage">
+                            <a title="删除" href="javascript:;" onclick="view_del(this,'1',{$vo.id})" 
+                            style="text-decoration:none">
+                                <i class="layui-icon">&#xe640;</i>
+                            </a>
+                            <a title="编辑" href="menuedit.html?id={$vo.id}" onclick="member_edit('编辑','menuedit.html?id={$vo.id}','4','','510')" target='_self'
+                            class="ml-5" style="text-decoration:none">
+                                <i class="layui-icon">&#xe642;</i>
+                            </a>
+                            <a title="添加" href="menuadd.html?id={$vo.id}&biaoshi={$vo.biaoshi}" class="ml-5" style="text-decoration:none">
+                                <i class="layui-icon">&#xe608;</i>
+                            </a>
+                        </td>
+                        
+                    </tr>
+                    {/volist}
+                </tbody>
+            </table>
+    <script>
+        // 用户-编辑
+        function member_edit (title,url,id,w,h) {
+            x_admin_show(title,url,w,h); 
+        }
+        function view_del(obj,id,vid){
+            layer.confirm('确认要删除吗？',function(index){
+                //发异步删除数据
+                window.location.href='menuremove?vid=' + vid;//不能带.php
+                $(obj).parents("tr").remove();
+                layer.msg('已删除!',{icon:1,time:1000});
+    　  })  
+        }
+    </script>
